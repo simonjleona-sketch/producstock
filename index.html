@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Control de materia prima, proveedores y presupuesto de insumos industriales."
+    >
+    <meta name="theme-color" content="#0b1f3a">
+    <title>ProducStock | Control de Materia Prima y Mercados</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <a class="logo" href="#inicio" aria-label="ProducStock, ir al inicio">
+        <span class="logo-mark" aria-hidden="true">P</span>
+        <span>ProducStock <span class="logo-accent">Industrial</span></span>
+      </a>
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#registro">Registrar insumo</a>
+        <a href="#inventario">Inventario</a>
+      </nav>
+    </header>
+
+    <main class="container" id="inicio">
+      <section class="hero" aria-labelledby="hero-title">
+        <p class="eyebrow">Control inteligente para tu operación</p>
+        <h1 id="hero-title">Optimiza las compras de insumos industriales</h1>
+        <p class="hero-description">
+          Organiza materiales, compara proveedores cercanos y mantén cada compra
+          visible para tomar mejores decisiones de presupuesto.
+        </p>
+        <a href="#registro" class="btn-cta">Registrar Nuevo Insumo</a>
+      </section>
+
+      <section id="registro" class="card" aria-labelledby="registro-title">
+        <div class="section-heading">
+          <p class="eyebrow">Nuevo registro</p>
+          <h2 id="registro-title">Materiales e insumos</h2>
+          <p>Completa los datos para agregar un insumo al catálogo.</p>
+        </div>
+        <form id="formInsumo">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="material">Nombre del material o insumo</label>
+              <input
+                type="text"
+                id="material"
+                name="material"
+                placeholder="Ej. Película stretch film 50 cm"
+                maxlength="120"
+                autocomplete="off"
+                required
+              >
+            </div>
+            <div class="form-group">
+              <label for="categoria">Categoría</label>
+              <select id="categoria" name="categoria" required>
+                <option value="">Selecciona una categoría</option>
+                <option value="Materia Prima">Materia Prima</option>
+                <option value="Empaque y Embalaje">Empaque y Embalaje</option>
+                <option value="Mantenimiento">Mantenimiento</option>
+                <option value="Seguridad Industrial">Seguridad Industrial</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="precio">Precio unitario (USD)</label>
+              <div class="input-prefix">
+                <span aria-hidden="true">$</span>
+                <input
+                  type="number"
+                  id="precio"
+                  name="precio"
+                  min="0.01"
+                  step="0.01"
+                  placeholder="25.50"
+                  inputmode="decimal"
+                  required
+                >
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="mercado">Mercado cercano o proveedor</label>
+              <input
+                type="text"
+                id="mercado"
+                name="mercado"
+                placeholder="Ej. Ferretería local"
+                maxlength="120"
+                autocomplete="organization"
+                required
+              >
+            </div>
+            <div class="form-group form-group-wide">
+              <label for="enlace">Enlace web del mercado o proveedor</label>
+              <input
+                type="url"
+                id="enlace"
+                name="enlace"
+                placeholder="https://ejemplo.com"
+                autocomplete="url"
+                required
+              >
+            </div>
+          </div>
+          <button type="submit" class="btn-submit">Guardar Insumo</button>
+        </form>
+        <div id="mensajeAlerta" class="alerta oculto" role="alert" aria-live="assertive"></div>
+      </section>
+
+      <section id="inventario" class="card" aria-labelledby="inventario-title">
+        <div class="section-heading">
+          <p class="eyebrow">Catálogo</p>
+          <h2 id="inventario-title">Insumos registrados</h2>
+          <p>Consulta materiales, precios y enlaces de los proveedores.</p>
+        </div>
+        <div id="mensajeCatalogo" class="alerta oculto" role="status" aria-live="polite"></div>
+        <div class="table-wrapper">
+          <table class="tabla-datos">
+            <thead>
+              <tr>
+                <th scope="col">Código</th>
+                <th scope="col">Material</th>
+                <th scope="col">Categoría</th>
+                <th scope="col">Precio unitario</th>
+                <th scope="col">Mercado cercano</th>
+                <th scope="col">Enlace</th>
+              </tr>
+            </thead>
+            <tbody id="tablaCuerpo"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>ProducStock · Control de Materia Prima y Mercados</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "mercados": [
+    {
+      "idMercado": "MERC-01",
+      "nombre": "Ferretotal",
+      "ubicacion": "Valencia, Carabobo",
+      "enlace": "https://www.ferretotal.com/"
+    },
+    {
+      "idMercado": "MERC-02",
+      "nombre": "EPA Venezuela",
+      "ubicacion": "Valencia, Carabobo",
+      "enlace": "https://www.epaenlinea.com/"
+    }
+  ],
+  "insumos": [
+    {
+      "idInsumo": "INS-001",
+      "material": "Cinta de embalaje industrial 48 mm",
+      "categoria": "Empaque y Embalaje",
+      "precioUnitario": 12.5,
+      "mercado": "Ferretotal",
+      "enlaceMercado": "https://www.ferretotal.com/"
+    },
+    {
+      "idInsumo": "INS-002",
+      "material": "Guantes de seguridad para trabajo industrial",
+      "categoria": "Seguridad Industrial",
+      "precioUnitario": 8,
+      "mercado": "EPA Venezuela",
+      "enlaceMercado": "https://www.epaenlinea.com/"
+    }
+  ]
+}
